@@ -15,6 +15,8 @@ export class UsuarioComponent implements OnInit {
   urlImg: string;
   phone: string;
   gender: string;
+  loading = true;
+
   constructor(private aRoute: ActivatedRoute,
               private usuarioService: UsuarioService) {
     this.id = +this.aRoute.snapshot.paramMap.get('id');
@@ -26,13 +28,13 @@ export class UsuarioComponent implements OnInit {
 
   getUsuario(): void {
     this.usuarioService.getUsuario(this.id).subscribe(data => {
-      console.log(data);
       this.firstName = data.result.first_name;
       this.lastName = data.result.last_name;
       this.email = data.result.email;
       this.phone = data.result.phone;
       this.gender = data.result.gender;
       this.urlImg = data.result._links.avatar.href;
+      this.loading = false;
     });
   }
 
