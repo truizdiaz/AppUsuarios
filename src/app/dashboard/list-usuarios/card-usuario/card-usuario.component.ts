@@ -10,12 +10,15 @@ export class CardUsuarioComponent implements OnInit {
   imgUrl: string;
   firstName: string;
   email: string;
+  id: number;
   constructor() { }
 
   ngOnInit(): void {
     this.firstName = this.user.first_name;
     this.email = this.user.email;
     this.imgUrl = this.user._links.avatar.href;
+    console.log(this.user);
+    this.id = this.user.id;
   }
 
 }
