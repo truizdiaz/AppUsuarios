@@ -28,12 +28,13 @@ export class UsuarioComponent implements OnInit {
 
   getUsuario(): void {
     this.usuarioService.getUsuario(this.id).subscribe(data => {
-      this.firstName = data.result.first_name;
-      this.lastName = data.result.last_name;
-      this.email = data.result.email;
-      this.phone = data.result.phone;
-      this.gender = data.result.gender;
-      this.urlImg = data.result._links.avatar.href;
+      console.log(data);
+      this.firstName = data.data.name;
+     /*  this.lastName = data.result.last_name; */
+      this.email = data.data.email;
+      this.phone = data.data.phone;
+      this.gender = data.data.gender;
+     /*  this.urlImg = data.result._links.avatar.href; */
       this.loading = false;
     });
   }

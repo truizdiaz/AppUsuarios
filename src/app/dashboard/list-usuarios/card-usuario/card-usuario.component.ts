@@ -14,9 +14,9 @@ export class CardUsuarioComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.firstName = this.user.first_name;
+    this.firstName = this.user.name;
     this.email = this.user.email;
-    this.imgUrl = this.user._links.avatar.href;
+   /*  this.imgUrl = this.user._links.avatar.href; */
     this.id = this.user.id;
   }
 
